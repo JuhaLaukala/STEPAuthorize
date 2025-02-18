@@ -4,8 +4,13 @@
 #include "Sign.h"
 #include "Verify.h"
 
+extern "C"
+void** OPENSSL_Applink(void);
+
 int main(int argc, char **argv)
 {
+	OPENSSL_Applink();
+
 	if (argc < 2)
 	{
 		std::cout << "Usage: " << argv[0] << "[Sign,Verify]" << std::endl;
